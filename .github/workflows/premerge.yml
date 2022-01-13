@@ -16,9 +16,8 @@ jobs:
           export EXTRA_TAG="-premerge-$(git rev-parse --short HEAD)"
           docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" || echo "Only repo editors can push images"
           images=( 
-            'go:1.14'
-            'go-init:1.14'
-            'go-init:1.13'
+            'go:1.17'
+            'go-init:1.17'
           )
           for image in "${images[@]}"; do
             docker tag kubeless/${image} ciscom31/${image}${EXTRA_TAG}
