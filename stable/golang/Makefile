@@ -1,6 +1,6 @@
 # Init images
 init-image-1.17:
-	docker build --no-cache -f Dockerfile.1.17.init -t dockerhub.cisco.com/cspg-docker/andromeda/kubeless/go-init:1.17 .
+	docker build --no-cache -f Dockerfile.1.17.init -t kubeless/go-init:1.17 .
 
 init-image: init-image-1.17
 
@@ -12,12 +12,12 @@ runtime-image: runtime-image-1.17
 
 # Push images
 push-init-1.17:
-	docker push dockerhub.cisco.com/cspg-docker/andromeda/kubeless/go-init:1.17
+	docker push kubeless/go-init:1.17
 
 push-init: push-init-1.17
 
 push-runtime-1.17:
-    docker push dockerhub.cisco.com/cspg-docker/andromeda/kubeless/go:1.17
+    docker push kubeless/go:1.17
 
 push-runtime: push-runtime-1.17
 
