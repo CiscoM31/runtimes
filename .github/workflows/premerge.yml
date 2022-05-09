@@ -42,6 +42,11 @@ jobs:
             'python:3.8'
           )
           for image in "${images[@]}"; do
+            imageTag=(${image//:/ })
+            docker tag kubeless/${image} ciscom31/python-runtime/${EXTRA_TAG}
+            docker push ciscom31/python-runtime/${EXTRA_TAG}
+            docker tag kubeless/${image} ciscom31/python-installation/${EXTRA_TAG}
+            docker push ciscom31/python-installation/${EXTRA_TAG}
             docker tag kubeless/${image} ciscom31/${image}${EXTRA_TAG}
-            docker push ciscom31/${image}${EXTRA_TAG} || echo "Only repo editors can push images"
+            docker push ciscom31/${image}${EXTRA_TAG}
           done

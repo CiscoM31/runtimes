@@ -43,6 +43,11 @@ jobs:
             'python:3.8'
           )
           for image in "${images[@]}"; do
+            imageTag=(${image//:/ })
+            docker tag kubeless/${image} ciscom31/python-runtime/${imageTag[1]}
+            docker push ciscom31/python-runtime/${imageTag[1]}
+            docker tag kubeless/${image} ciscom31/python-installation/${imageTag[1]}
+            docker push ciscom31/python-installation/${imageTag[1]}
             docker tag kubeless/${image} ciscom31/${image}
             docker push ciscom31/${image}
           done
