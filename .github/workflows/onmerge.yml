@@ -24,7 +24,7 @@ jobs:
           for image in "${images[@]}"; do
             imageTag=(${image//:/ })
             docker tag kubeless/${image} ciscom31/${imageTag[0]}:go${imageTag[1]}
-            docker push ciscom31/go:go${imageTag[1]}
+            docker push ciscom31/${imageTag[0]}:go${imageTag[1]}
             docker tag kubeless/${image} ciscom31/${image}
             docker push ciscom31/${image}
           done
